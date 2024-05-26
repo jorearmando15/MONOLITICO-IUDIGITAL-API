@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  profecto-monolitica-iudigital:
+    container_name: profecto-monolitica-iudigital
+    image: profecto-monolitica-iudigital:v1
+    build:
+      context: .
+    ports:
+      - "4100:4100"
+    networks:
+      - profecto-iudigital-app
+    environment:
+      - NODE_ENV=docker
+      - MONGODB_URI_LOCAL=mongodb://localhost:27017/iudigital
+
+networks:
+  profecto-iudigital-app:
